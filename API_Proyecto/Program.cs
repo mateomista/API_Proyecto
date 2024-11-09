@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ProductoService>();
-builder.Services.AddScoped<StockService>();
+builder.Services.AddSingleton<StockService>();
 
 var app = builder.Build();
 
