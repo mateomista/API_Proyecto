@@ -74,23 +74,35 @@ namespace API_Proyecto.Services
         public void ActualizarPasillo(Posicion posicion, char nuevoPasillo)
         {
             posicion.Pasillo = nuevoPasillo;
+            _posiciones.Add(posicion);
+
         }
 
         public void ActualizarSeccion(Posicion posicion, ushort nuevaSeccion)
         {
             posicion.Seccion = nuevaSeccion;
+            _posiciones.Add(posicion);
+
         }
 
         public void ActualizarEstanteria(Posicion posicion, ushort nuevaEstanteria)
         {
             posicion.Estanteria = nuevaEstanteria;
+            _posiciones.Add(posicion);
+
         }
 
         public void ActualizarNivel(Posicion posicion, ushort nuevoNivel)
         {
             posicion.Nivel = nuevoNivel;
+            _posiciones.Add(posicion);  
         }
 
+        public void ActualizarCantidad(Posicion posicion, ushort nuevaCantidad)
+        {
+            posicion.Cantidad = nuevaCantidad;
+            _posiciones.Add(posicion);
+        }
 
         public void EliminarPosicion(Posicion posicion)
         {

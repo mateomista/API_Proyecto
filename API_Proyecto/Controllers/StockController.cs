@@ -119,6 +119,24 @@ namespace API_Proyecto.Controllers
             }
         }
 
+        [HttpPut("{posicion}/ActualizarCantidad")]
+        public IActionResult ActualizarCantidad(string posicion, ushort cantidad)
+        {
+            var pos = _service.ConvertToPosicion(posicion);
+            var posicionActualizar = _service.GetByPosition(pos);
+
+            if (posicionActualizar != null)
+            {
+                _service.ActualizarCantidad(posicionActualizar, cantidad);
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
         [HttpDelete("{posicion}")]
         public IActionResult EliminarPosicion(string posicion)
         {
