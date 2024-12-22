@@ -16,6 +16,23 @@ namespace API_Proyecto.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Producto>().HasData(
+                    new Producto
+                    {
+                        IdProducto = 1,
+                        Descripcion = "Producto A",
+                        Tamanio = new Tamanio { alto = 30, ancho = 20, profundidad = 15 }
+                    },
+                    new Producto
+                    {
+                        IdProducto = 2,
+                        Descripcion = "Producto B",
+                        Tamanio = new Tamanio { alto = 50, ancho = 40, profundidad = 25 }
+                    }
+                );
+
             modelBuilder.Entity<Cliente>()
                 .HasKey(c => c.CUIT);
             modelBuilder.Entity<Producto>()
