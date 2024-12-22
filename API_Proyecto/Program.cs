@@ -1,4 +1,6 @@
 using API_Proyecto.Services;
+using API_Proyecto.Data;    
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddScoped<ProductoService>();
 builder.Services.AddSingleton<StockService>();
+builder.Services.AddDbContext<StockContext>(options =>
+    options.UseSqlite("Data Source=StockContext.db"));
 
 var app = builder.Build();
 
